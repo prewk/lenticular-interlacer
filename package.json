@@ -1,0 +1,45 @@
+{
+  "name": "lenticular-interlacer",
+  "version": "0.0.1",
+  "description": "Interlaces raw pixel buffers from multiple images into one suitable for lenticular printing purposes",
+  "main": "dist/interlacer.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc --declaration"
+  },
+  "types": "dist/interlacer.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prewk/lenticular-interlacer.git"
+  },
+  "author": "Oskar Thornblad <oskar.thornblad@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prewk/lenticular-interlacer/issues"
+  },
+  "homepage": "https://github.com/prewk/lenticular-interlacer#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.4"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
