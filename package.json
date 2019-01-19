@@ -5,7 +5,8 @@
   "main": "dist/interlacer.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc --declaration"
+    "build": "tsc --declaration",
+    "prepublishOnly": "npm run build"
   },
   "types": "dist/interlacer.d.ts",
   "repository": {
