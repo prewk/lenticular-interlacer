@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc --declaration",
-    "prepublishOnly": "npm run build"
+    "prepack": "npm run build"
   },
   "types": "dist/interlacer.d.ts",
   "repository": {
