@@ -41,5 +41,8 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "sharp": "^0.21.2"
   }
 }

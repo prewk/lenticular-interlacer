@@ -1,1 +1,6 @@
 node_modules
+*.jpg
+*.tiff
+*.png
+test.js
+output.tiff

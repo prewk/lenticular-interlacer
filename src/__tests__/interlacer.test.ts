@@ -1,4 +1,4 @@
-import Interlacer from '../interlacer'
+const Interlacer = require('../interlacer');
 
 const pixels = (times: number, rgb: number[]): number[] => {
   const out: number[] = [];

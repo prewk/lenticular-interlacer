@@ -8,7 +8,7 @@ interface Image {
 /**
  * Interlaces raw pixel buffers from multiple images into one suitable for lenticular printing purposes
  */
-export default class Interlacer {
+class Interlacer {
     images: Image[] = [];
 
     constructor(
@@ -88,7 +88,7 @@ export default class Interlacer {
 
         const { width, height } = this.getMVDimensions();
         const output: number[] = [];
-        const lensThickness = this.dpi / this.lpi;
+        const lensThickness = this.dpi / (this.lpi * images.length);
 
         if (this.horizontal) {
             // Horizontal interlace
@@ -126,3 +126,5 @@ export default class Interlacer {
         };
     }
 }
+
+module.exports = Interlacer;
