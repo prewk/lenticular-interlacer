@@ -9,6 +9,8 @@ npm install lenticular-interlacer
 ## Usage
 
 ```js
+const Interlacer = require('lenticular-interlacer');
+
 // Construct an Interlacer instance
 const interlacer = new Interlacer(
     60, // LPI - Lenses per inch
@@ -74,3 +76,5 @@ Promise.all([
     });
 ```
 
+## License
+MIT
