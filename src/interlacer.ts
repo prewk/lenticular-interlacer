@@ -127,4 +127,4 @@ class Interlacer {
     }
 }
 
-module.exports = Interlacer;
+export default Interlacer;

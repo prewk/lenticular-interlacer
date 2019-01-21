@@ -1,7 +1,5 @@
-const Interlacer = require('../interlacer');
-
 const pixels = (times: number, rgb: number[]): number[] => {
-  const out: number[] = [];
+  const out = [];
   for (let i = 0; i < times; i++) {
     out.push(...rgb);
   }
@@ -10,6 +8,8 @@ const pixels = (times: number, rgb: number[]): number[] => {
 
 describe('Interlacer', () => {
     it('should vertically interlace 2 images', () => {
+        const Interlacer = require('../interlacer').default;
+
         const interlacer = new Interlacer(1, 2, false);
 
         // Add a 5x5 image with 4 channels
@@ -42,14 +42,16 @@ describe('Interlacer', () => {
         const results = interlacer.interlace();
 
         expect(Array.from(results.buffer)).toEqual([
-            ...pixels(2, [255, 0, 0]), ...pixels(2, [0, 255, 0]),
-            ...pixels(2, [128, 0, 0]), ...pixels(2, [0, 128, 0]),
-            ...pixels(2, [64, 0, 0]), ...pixels(2, [0, 64, 0]),
-            ...pixels(2, [32, 0, 0]), ...pixels(2, [0, 32, 0]),
+                ...[255, 0, 0], ...[0, 255, 0],...[255, 0, 0], ...[0, 255, 0],
+                ...[128, 0, 0], ...[0, 128, 0],...[128, 0, 0], ...[0, 128, 0],
+                ...[64, 0, 0], ...[0, 64, 0],...[64, 0, 0], ...[0, 64, 0],
+                ...[32, 0, 0], ...[0, 32, 0],...[32, 0, 0], ...[0, 32, 0],
         ]);
     });
 
   it('should horizontally interlace 2 images', () => {
+  const Interlacer = require('../interlacer').default;
+
     const interlacer = new Interlacer(1, 2, true);
 
     // Add a 5x5 image with 4 channels
@@ -83,8 +85,8 @@ describe('Interlacer', () => {
 
     expect(Array.from(results.buffer)).toEqual([
         ...pixels(4, [255, 0, 0]),
-        ...pixels(4, [128, 0, 0]),
-        ...pixels(4, [0, 64, 0]),
+        ...pixels(4, [0, 128, 0]),
+        ...pixels(4, [64, 0, 0]),
         ...pixels(4, [0, 32, 0]),
     ]);
   });

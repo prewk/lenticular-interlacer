@@ -4,3 +4,4 @@ node_modules
 *.tiff
 *.png
 test.js
+coverage

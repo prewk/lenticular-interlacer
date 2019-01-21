@@ -3,3 +3,4 @@
 *.tiff
 *.png
 test.js
+coverage
