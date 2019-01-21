@@ -1,4 +1,4 @@
-# Lenticular interlacer
+# Lenticular interlacer [![Build Status](https://travis-ci.org/prewk/lenticular-interlacer.svg?branch=master)](https://travis-ci.org/prewk/lenticular-interlacer) [![Coverage Status](https://coveralls.io/repos/github/prewk/lenticular-interlacer/badge.svg?branch=master)](https://coveralls.io/github/prewk/lenticular-interlacer?branch=master)
 
 ## Installation
 
