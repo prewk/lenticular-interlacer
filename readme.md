@@ -1,5 +1,31 @@
 # Lenticular interlacer [![Build Status](https://travis-ci.org/prewk/lenticular-interlacer.svg?branch=master)](https://travis-ci.org/prewk/lenticular-interlacer) [![Coverage Status](https://coveralls.io/repos/github/prewk/lenticular-interlacer/badge.svg?branch=master)](https://coveralls.io/github/prewk/lenticular-interlacer?branch=master)
 
+Interlaces raw pixel buffers from two or more images either horizontally or vertically for lenticular printing purposes.
+
+```
+╔═══════════╗     ╔═══════════╗     ╔═══════════╗
+║###########║     ║///////////║     ║###########║
+║###########║     ║///////////║     ║///////////║
+║###########║  +  ║///////////║  =  ║###########║
+║###########║     ║///////////║     ║///////////║
+║###########║     ║///////////║     ║###########║
+╚═══════════╝     ╚═══════════╝     ╚═══════════╝
+```
+
+### Raw pixel buffers
+
+A raw pixel buffer is an image's pixels as a long list of flat channel data. 
+
+```             
+   2*2 px 3 channels      
+╔═════════════════════╗   
+║(255,0,0) (255,255,0)║   
+║(64,64,0) (255,0,255)║
+║(255,0,0) (255,255,0)║   
+╚═════════════════════╝
+= Buffer [255,0,0,255,255,0,64,64,0,255,0,255,255,0,0,255,255,0]   
+```
+
 ## Installation
 
 ```
