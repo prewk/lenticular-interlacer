@@ -1,8 +1,8 @@
 interface Image {
-    buffer: Buffer,
-    channels: number,
-    width: number,
-    height: number,
+    buffer: Buffer;
+    channels: number;
+    width: number;
+    height: number;
 }
 
 /**
@@ -20,12 +20,17 @@ class Interlacer {
     /**
      * Add another image to be interlaced
      */
-    public push(buffer: Buffer, channels: number, width: number, height: number): this {
+    public push(
+        buffer: Buffer,
+        channels: number,
+        width: number,
+        height: number
+    ): this {
         this.images.push({
             buffer,
             channels,
             width,
-            height,
+            height
         });
 
         return this;
@@ -34,33 +39,42 @@ class Interlacer {
     /**
      * Find the minimum dimensions possible
      */
-    private getMVDimensions(): { width: number, height: number } {
-        return this.images.reduce((mvd, image) => {
-            if (image.width < mvd.width) {
-                mvd.width = image.width;
-            }
-            if (image.height < mvd.height) {
-                mvd.height = image.height;
-            }
+    private getMVDimensions(): { width: number; height: number } {
+        return this.images.reduce(
+            (mvd, image) => {
+                if (image.width < mvd.width) {
+                    mvd.width = image.width;
+                }
+                if (image.height < mvd.height) {
+                    mvd.height = image.height;
+                }
 
-            return mvd;
-        }, { width: Infinity, height: Infinity });
+                return mvd;
+            },
+            { width: Infinity, height: Infinity }
+        );
     }
 
     /**
      * Extract one RGB pixel from a raw image buffer
      */
-    private getRgbPixel(image: Image, x: number, y: number, fallback: [number, number, number]): [number, number, number] {
+    private getRgbPixel(
+        image: Image,
+        x: number,
+        y: number,
+        fallback: [number, number, number]
+    ): [number, number, number] {
         if (x >= image.width || y >= image.height) return fallback;
 
         const offset = y * (image.width * image.channels);
 
-        return typeof image.buffer[offset + x * image.channels + 2]  !== 'undefined'
+        return typeof image.buffer[offset + x * image.channels + 2] !==
+            'undefined'
             ? [
-                image.buffer[offset + x * image.channels + 0],
-                image.buffer[offset + x * image.channels + 1],
-                image.buffer[offset + x * image.channels + 2],
-            ]
+                  image.buffer[offset + x * image.channels + 0],
+                  image.buffer[offset + x * image.channels + 1],
+                  image.buffer[offset + x * image.channels + 2]
+              ]
             : fallback;
     }
 
@@ -99,7 +113,9 @@ class Interlacer {
 
                 const image = images[pointer];
                 for (let x = 0; x < width; x++) {
-                    output.push(...this.getRgbPixel(image, x, y, [255, 255, 255]));
+                    output.push(
+                        ...this.getRgbPixel(image, x, y, [255, 255, 255])
+                    );
                 }
             }
         } else {
@@ -113,7 +129,9 @@ class Interlacer {
                     }
 
                     const image = images[pointer];
-                    output.push(...this.getRgbPixel(image, x, y, [255, 255, 255]));
+                    output.push(
+                        ...this.getRgbPixel(image, x, y, [255, 255, 255])
+                    );
                 }
             }
         }
@@ -122,7 +140,7 @@ class Interlacer {
             buffer: Buffer.from(output),
             channels: 3,
             width,
-            height,
+            height
         };
     }
 }
